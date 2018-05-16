@@ -1,0 +1,44 @@
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: ner-spacy-app-pod
+#   labels:
+#     app: ner-spacy
+# spec:
+#   containers:
+#     - name: ner-spacy-app-container
+#       image: gcr.io/pg-us-n-app-225642/ner-spacy-app:v4
+#       ports:
+#         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fake-news-detection-service
+  labels:
+    app: fake-news-detection
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: fake-news-detection
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fake-news-detection-deployment
+  labels:
+    app: fake-news-detection
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: fake-news-detection
+    spec:
+      containers:
+      - name: fake-news-detection-container
+        image: gcr.io/p-g-us-adv-x-dat-aia-proto-1/nathanhuang/fake-news-detection:v9
+      restartPolicy: Always
