@@ -1,5 +1,5 @@
 From tiangolo/uwsgi-nginx-flask:flask-python3.5
-MAINTAINER nathan <nathan.huang@pwc.com>
+MAINTAINER nathan <huangxin911@gmail.com>
 
 ##########################################
 # General
