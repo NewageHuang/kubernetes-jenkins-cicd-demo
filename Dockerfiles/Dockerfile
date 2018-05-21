@@ -4,9 +4,9 @@ MAINTAINER nathan <huangxin911@gmail.com>
 ##########################################
 # General
 ##########################################
-RUN apt-get update
-RUN apt-get install -y build-essential python-dev git
-RUN pip install --upgrade pip setuptools
+# RUN apt-get update
+# RUN apt-get install -y build-essential python-dev git
+# RUN pip install --upgrade pip setuptools
 
 ##########################################
 # Project packages
@@ -14,12 +14,6 @@ RUN pip install --upgrade pip setuptools
 # Install Python Packages
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-
-##########################################
-# Download NLTK packages
-##########################################
-RUN mkdir -p /usr/share/nltk_data
-RUN python -m nltk.downloader -d /usr/share/nltk_data all
 
 ##########################################
 # API files
