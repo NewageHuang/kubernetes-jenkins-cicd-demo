@@ -12,7 +12,7 @@ app = Flask(__name__)
 # default home page & API instructions
 @app.route('/')
 def instruction():
-    instruction = "<br>This is kubernetes jenkins CI/CD demo.</br>"
+    instruction = "<br>This is kubernetes jenkins CI/CD demo 2.</br>"
     return instruction
 
 
